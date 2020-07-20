@@ -1,0 +1,40 @@
+<div class="row" style="margin-top: 40px;">
+    <div class="col-md-12">
+      <form [formGroup]="registerForm">
+        <p class="h4 mb-4">Register</p>
+        <div class="form-group">
+          <input formControlName="email" type="email" class="form-control" placeholder="Email" id="email">
+          <span class="sp" style="color: red;" *ngIf="registerForm.controls.email.hasError('required') && registerForm.controls.email.touched">Email is required!</span>
+        </div>
+        <div class="form-group">
+          <input formControlName="username" type="text" class="form-control" placeholder="Username" id="username">
+          <span class="sp" style="color: red;" *ngIf="registerForm.controls.username.hasError('required') && registerForm.controls.username.touched">Username is required!</span>
+        </div>
+        <div class="form-group">
+          <input formControlName="phone" type="nuber" class="form-control" placeholder="Phone" id="phone">
+          <span class="sp" style="color: red;" *ngIf="registerForm.controls.phone.hasError('required') && registerForm.controls.phone.touched">Phone is required!</span>
+        </div>
+        <div class="form-group">
+          <input formControlName="password" type="password" class="form-control" placeholder="Password" id="password">
+          <span class="sp" style="color: red;" *ngIf="registerForm.controls.password.hasError('required') && registerForm.controls.password.touched">Password is required!</span>
+        </div>
+        <div class="form-group">
+          <input formControlName="cpassword" type="password" class="form-control" placeholder="Confirm password" id="cpassword">
+          <span class="sp" style="color: red;" *ngIf="registerForm.controls.cpassword.hasError('required') && registerForm.controls.cpassword.touched">Confirm password is required!</span>
+          <span class="sp" style="color: red;" *ngIf="registerForm.controls.cpassword.hasError('mustMatch') ">Confirm Password do not match</span>
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-dark" (click)="register()" [disabled]="!registerForm.valid">Register</button>
+          <button type="button" class="btn btn-secondary ml-1" routerLink="/login">Login</button>
+        </div>
+      </form>
+    </div>
+  </div> 
+
+  <!-- <span class="sp"
+  *ngIf="signUpForm.controls.confirmPassword.hasError('required') && signUpForm.controls.confirmPassword.touched">Confirm
+  Password is required!</span>
+
+  
+  <span class="sp" *ngIf="signUpForm.controls.phoneNumber.hasError('pattern')" style=" color: red;">
+    Phone Number must contain 9 digits to maximum 15 digits</span> -->
